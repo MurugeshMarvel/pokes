@@ -10,12 +10,12 @@ import sys, getopt
 
 def doc2pdf():
 	def doc2pdf(ori_name,new_name):
-	p = subprocess.Popen(['unoconv', '--stdout', ori_name], stdout=subprocess.PIPE)
-	with open(new_name, 'w') as output:
-	   shutil.copyfileobj(p.stdout, output)
+		p = subprocess.Popen(['unoconv', '--stdout', ori_name], stdout=subprocess.PIPE)
+		with open(new_name, 'w') as output:
+	   		shutil.copyfileobj(p.stdout, output)
 
 
-def pdf2txt(filepath,save_path,pages=None):
+def pdf2txt(filepath,pages=None):
     if not pages:
         pagenums = set()
     else:
@@ -33,5 +33,11 @@ def pdf2txt(filepath,save_path,pages=None):
     converter.close()
     text = output.getvalue()
     output.close
-    
+    fil = open('sample.doc','a')
+    fil.write(text)
+    fil.close()
+
+
+if __name__ == '__main__':
+	pdf2txt('abhishek.pdf')
      
