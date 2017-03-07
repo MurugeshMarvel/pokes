@@ -33,7 +33,7 @@ def pdf2txt(filepath,pages=None):
     converter.close()
     text = output.getvalue()
     output.close
-    fil = open('sample.doc','a')
+    fil = open('sample.txt','a')
     fil.write(text)
     fil.close()
 
