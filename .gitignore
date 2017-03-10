@@ -1,0 +1,6 @@
+#this contains the dataset of the project
+data/
+
+#this contains some supporting libraries
+bin/
+
