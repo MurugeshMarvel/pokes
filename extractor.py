@@ -5,6 +5,10 @@ import numpy as np
 import theano.tensor as Ten
 
 
+
+with path as open('data/')
+print path[:10]
+
 vocabulary_size = 80000
 unknown_token = "UNKNOWN_TOKEN"
 sentence_start_token = "SENTENCE_START"
