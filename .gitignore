@@ -4,3 +4,5 @@ data/
 #this contains some supporting libraries
 bin/
 
+#this contains some reference manual and documentation
+REFERENCE/
