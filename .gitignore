@@ -1,8 +1,13 @@
-#this contains the dataset of the project
+#this contains the dataset of the projects
 data/
+resumes/
 
 #this contains some supporting libraries
 bin/
 
 #this contains some reference manual and documentation
 REFERENCE/
+
+#this contains some temporary files for developement
+temps/
+
