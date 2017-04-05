@@ -5,7 +5,8 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from cStringIO import StringIO
-from os import glob
+import os 
+import glob
 
 
 def pdf2txt(file):
