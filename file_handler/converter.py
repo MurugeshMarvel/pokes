@@ -1,27 +1,38 @@
 
 import os
-import converter_engine as converter_obj
+import converter_engine as convert
 
-class convert:
-    def convert_file(self, filepath,save_path,from_file,to_file):
+class converter:
+    def __init__(self, source_name,dest_name, from_file, to_file ):
+        output_string = convert_file(source_name, from_file, to_file)
+        if '.' in dest_name:
+            output_file_name = dest_name
+        else:
+            output_file_name = dest_name + '.' + to_file
+        output_file = open(output_file_name,'w')
+        output_file_name.write(output_string)
+        output_file.close()
+
+    def convert_file(self, file_name,from_file,to_file):
         if from_file == 'doc':
             if to_file == 'pdf':
-                converter_obj.doc2pdf(filepath,save_path)
+                text_string = convert.doc2pdf(file_name)
 
             if to_file == 'txt':
-                converter_obj.doc2txt(filepath,save_path)
+                text_string = convert.doc2txt(file_name)
 
             else:
                 print 'doc can be converted only to pdf,text using this program'
 
         elif from_file == 'pdf':
             if to_file == 'doc':
-                converter_obj.pdf2doc(filepath,save_path)
+                text_string = convert.pdf2doc(file_name)
             elif to_file == 'txt':
-                converter_obj.pdf2txt(filepath,save_path)
+                text_string = convert.pdf2txt(file_name)
 
         elif from_file == 'txt':
             if to_file == 'doc':
-                converter_obj.txt2doc(filepath,save_path)
+                text_string = convert.txt2doc(file_name)
             elif to_file == 'pdf':
-                converter_obj.txt2pdf(filepath,save_path)
+                text_string = convert.txt2pdf(file_name)
+        return text_string

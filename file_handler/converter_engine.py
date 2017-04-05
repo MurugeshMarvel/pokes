@@ -8,7 +8,7 @@ from cStringIO import StringIO
 from os import glob
 
 
-def convert_pdf_to_txt(path):
+def pdf2txt(path):
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
     codec = 'utf-8'
@@ -28,7 +28,7 @@ def convert_pdf_to_txt(path):
     retstr.close()
     return str
 
-def document_to_text(filename):
+def doc2txt(filename):
     if filename[-4:] == ".doc":
         cmd = ['antiword', filename]
         p = Popen(cmd, stdout=PIPE)
