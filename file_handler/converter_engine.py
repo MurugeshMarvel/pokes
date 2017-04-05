@@ -8,7 +8,7 @@ from cStringIO import StringIO
 from os import glob
 
 
-def pdf2txt(path):
+def pdf2txt(file):
     rsrcmgr = PDFResourceManager()
     retstr = StringIO()
     codec = 'utf-8'
@@ -48,7 +48,5 @@ def doc2txt(filename):
         return stdout.decode('ascii', 'ignore')
     '''elif filename[-4:] == ".pdf":
 		return convert_pdf_to_txt(file_path)'''
-
-
 
 document_to_text('/home/murugesan/DEV/pokes_myedition/temps/adidtya.doc')
