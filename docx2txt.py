@@ -14,7 +14,7 @@ def convert_pdf_to_txt(path):
     codec = 'utf-8'
     laparams = LAParams()
     device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)
-    fp = file(path, 'rb')
+    fp = file(path,'r')
     interpreter = PDFPageInterpreter(rsrcmgr, device)
     password = ""
     maxpages = 0
@@ -57,13 +57,24 @@ for a, b, c  in os.walk(data_dir):
     pass
 for i in c:
     text = str(i)
+    print 'opening ',text
     if 'a' in text:
         dot_index = text.index('.')
         original_name = text[:dot_index]
         ext_name = text[dot_index:]
         file_path = data_dir + text
+        output_path = output_dir + original_name + '.txt'
         if ext_name == '.pdf':
             content_text = convert_pdf_to_txt(file_path)
-        else:
+        elif ext_name == '.doc':
             content_text = document_to_text(file_path)
-        
+        elif ext_name == '.docx':
+            content_text = document_to_text(file_path)
+        elif ext_name == '.odt':
+            content_text = document_to_text(file_path)
+        else:
+            print 'left', text
+        file1 = open(output_path,'w')
+        file1.write(content_text)
+        file1.close()
+        print 'processed ',original_name
